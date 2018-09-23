@@ -7,13 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
     @Id
     String id;
-    String name;
     String password;
     String address;
 
 
-    protected User(String name, String password, String address) {
-        this.name = name;
+    public User(String id, String password, String address) {
+        this.id = id;
         this.password = password;
         this.address = address;
     }
@@ -24,10 +23,6 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getPassword() {
@@ -44,10 +39,6 @@ public class User {
 
     public String getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getAddress() {

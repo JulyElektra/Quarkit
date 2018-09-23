@@ -20,6 +20,9 @@ public class Token {
         this.tokenAddress = tokenAddress;
     }
 
+    public Token() {
+    }
+
     public String getTokenName() {
         return tokenName;
     }

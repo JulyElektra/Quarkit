@@ -9,11 +9,11 @@ public class Sale {
     String endDate;
     int saleCap;
     Map<String, Integer> mapPaymentMethodTypeToRate;
-    Map<Integer, Integer> mapDaystoPercentTokensBonuses; // Time bonus
-    Map<Integer, Integer> mapAmounttoPercentTokensBonuses;// Amount bonus
+    Map<String, Integer> mapDaystoPercentTokensBonuses; // Time bonus
+    Map<String, Integer> mapAmounttoPercentTokensBonuses;// Amount bonus
 
 
-    public Sale(String saleName, String startDate, String endDate, int saleCap, Map<String, Integer> mapPaymentMethodTypeToRate, Map<Integer, Integer> mapDaystoPercentTokensBonuses, Map<Integer, Integer> mapAmounttoPercentTokensBonuses) {
+    public Sale(String saleName, String startDate, String endDate, int saleCap, Map<String, Integer> mapPaymentMethodTypeToRate, Map<String, Integer> mapDaystoPercentTokensBonuses, Map<String, Integer> mapAmounttoPercentTokensBonuses) {
         this.saleName = saleName;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -21,6 +21,9 @@ public class Sale {
         this.mapPaymentMethodTypeToRate = mapPaymentMethodTypeToRate;
         this.mapDaystoPercentTokensBonuses = mapDaystoPercentTokensBonuses;
         this.mapAmounttoPercentTokensBonuses = mapAmounttoPercentTokensBonuses;
+    }
+
+    public Sale() {
     }
 
     public String getSaleName() {
@@ -43,11 +46,11 @@ public class Sale {
         return mapPaymentMethodTypeToRate;
     }
 
-    public Map<Integer, Integer> getMapDaystoPercentTokensBonuses() {
+    public Map<String, Integer> getMapDaystoPercentTokensBonuses() {
         return mapDaystoPercentTokensBonuses;
     }
 
-    public Map<Integer, Integer> getMapAmounttoPercentTokensBonuses() {
+    public Map<String, Integer> getMapAmounttoPercentTokensBonuses() {
         return mapAmounttoPercentTokensBonuses;
     }
 }

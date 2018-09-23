@@ -1,7 +1,6 @@
 package rc;
 
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -9,11 +8,9 @@ import java.util.HashMap;
 @Component
 public class DbSeed implements CommandLineRunner {
 
-    UserRepository userRepository;
     CrowdSaleRepository crowdSaleRepository;
 
-    public DbSeed(UserRepository userRepository, CrowdSaleRepository crowdSaleRepository) {
-        this.userRepository = userRepository;
+    public DbSeed(CrowdSaleRepository crowdSaleRepository) {
         this.crowdSaleRepository = crowdSaleRepository;
     }
 
@@ -24,12 +21,12 @@ public class DbSeed implements CommandLineRunner {
 
 
         HashMap<String, Integer> mapPaymentMethodTypeToRate = new HashMap<String, Integer>();
-        HashMap<Integer, Integer> mapDaystoPercentTokensBonuses = new HashMap<Integer, Integer>();
-        HashMap<Integer, Integer> mapAmounttoPercentTokensBonuses = new HashMap<Integer, Integer>();
+        HashMap<String, Integer> mapDaystoPercentTokensBonuses = new HashMap<String, Integer>();
+        HashMap<String, Integer> mapAmounttoPercentTokensBonuses = new HashMap<String, Integer>();
 
-        mapPaymentMethodTypeToRate.put("", 130);
-        mapDaystoPercentTokensBonuses.put(45, 45);
-        mapAmounttoPercentTokensBonuses.put(200000, 68);
+        mapPaymentMethodTypeToRate.put("Eth", 130);
+        mapDaystoPercentTokensBonuses.put("45", 45);
+        mapAmounttoPercentTokensBonuses.put("200000", 68);
 
         CrowdSale crowdSale1 = new CrowdSale(user1,
                 new Token("TokenICO", "icoshki", 323,true, false, "dsda88sad"),
@@ -43,12 +40,9 @@ public class DbSeed implements CommandLineRunner {
                 "ICO startap", "startap@to.com" , "fkmks88");
 
         crowdSaleRepository.deleteAll();
-        userRepository.deleteAll();
 
         crowdSaleRepository.save(crowdSale1);
         crowdSaleRepository.save(crowdSale2);
 
-        userRepository.save(user1);
-        userRepository.save(user2);
     }
 }
