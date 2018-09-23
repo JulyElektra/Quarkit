@@ -1,8 +1,6 @@
 package rc;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,5 +22,10 @@ public class UserController {
     @GetMapping("/id")
     public User getById(String id) {
         return userRepository.findById(id).get();
+    }
+
+    @PostMapping()
+    public User update(@RequestBody User user) {
+        return userRepository.save(user);
     }
 }

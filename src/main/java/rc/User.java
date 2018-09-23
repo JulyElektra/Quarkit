@@ -9,9 +9,37 @@ public class User {
     String id;
     String name;
     String password;
+    String address;
 
-    public User(String name) {
+
+    protected User(String name, String password, String address) {
         this.name = name;
+        this.password = password;
+        this.address = address;
+    }
+
+    public User() {
+
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getId() {
@@ -21,4 +49,9 @@ public class User {
     public String getName() {
         return name;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
 }
