@@ -24,7 +24,7 @@ public class CrowdSaleController {
     }
 
     @PostMapping("")
-    public CrowdSale insert(@RequestBody CrowdSale crowdSale) {
+    public CrowdSale insertCrowdSale(@RequestBody CrowdSale crowdSale) {
         return crowdSaleRepository.save(crowdSale);
     }
 
@@ -40,7 +40,7 @@ public class CrowdSaleController {
     }
 
     @PostMapping("/{crowdsaleId}/users")
-    public CrowdSale insert(@PathVariable String crowdsaleId, @RequestBody User user) {
+    public CrowdSale insertUser(@PathVariable String crowdsaleId, @RequestBody User user) {
         CrowdSale crowdSale = crowdSaleRepository.findById(crowdsaleId).get();
         crowdSale.investors.add(user);
         return crowdSaleRepository.save(crowdSale);
