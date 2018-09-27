@@ -1,5 +1,6 @@
 package rc;
 
+import org.mindrot.jbcrypt.BCrypt;
 
 public class User {
 
@@ -10,7 +11,7 @@ public class User {
 
     public User(String id, String password, String address) {
         this.id = id;
-        this.password = password;
+        this.password = BCrypt.hashpw(password, BCrypt.gensalt(12));
         this.address = address;
     }
 
@@ -22,12 +23,12 @@ public class User {
         this.id = id;
     }
 
-    public String getPassword() {
-        return password;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = BCrypt.hashpw(password, BCrypt.gensalt(12));
     }
 
     public void setAddress(String address) {
